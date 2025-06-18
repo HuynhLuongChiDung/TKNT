@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đăng ký tư vấn - Litrada</title>
+  <link rel="stylesheet" href="tuvan.css"/>
+</head>
+<body>
+  <!-- Thanh công cụ giống Houzz -->
+  <header class="main-header">
+    <div class="left">
+      <div class="logo">Litrada</div>
+      <nav class="main-nav">
+        <a href="index.html">Trang chủ</a>
+        <a href="tuvan.html">Tư vấn</a>
+        <a href="#">Phòng khách</a>
+        <a href="#">Bếp</a>
+        <a href="#">Phòng ngủ</a>
+      </nav>
+    </div>
+    
+    <div class="center">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm, ý tưởng..." />
+    </div>
+    
+    <div class="right">
+      <a href="#" class="icon">❤️</a>
+      <a href="shop.html" class="icon">🛒</a>
+      <a href="login.html" class="icon">👤</a>
+    </div>
+  </header>
+
+  <!-- Form đăng ký tư vấn -->
+ <section class="consultation-form">
+  <h2>Đăng Ký Tư Vấn Thiết Kế Nội Thất</h2>
+  <form id="consultForm">
+    <div class="form-group">
+      <label for="name">Họ và tên</label>
+      <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="phone">Số điện thoại</label>
+      <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Nhập địa chỉ email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="service">Dịch vụ quan tâm</label>
+      <select id="service" name="service">
+        <option value="" disabled selected>Chọn dịch vụ</option>
+        <option value="living-room">Thiết kế phòng khách</option>
+        <option value="bedroom">Thiết kế phòng ngủ</option>
+        <option value="kitchen">Thiết kế nhà bếp</option>
+        <option value="full-house">Thiết kế toàn bộ ngôi nhà</option>
+        <option value="office">Thiết kế văn phòng</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="date">Ngày hẹn tư vấn</label>
+      <input type="date" id="date" name="date" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="time">Khung giờ</label>
+      <select id="time" name="time">
+        <option value="" disabled selected>Chọn khung giờ</option>
+        <option value="morning">Sáng (8h - 11h)</option>
+        <option value="afternoon">Chiều (13h - 17h)</option>
+        <option value="evening">Tối (18h - 20h)</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="note">Ghi chú thêm</label>
+      <textarea id="note" name="note" placeholder="Mô tả yêu cầu của bạn..."></textarea>
+    </div>
+    
+    <button type="submit" class="submit-btn">ĐĂNG KÝ TƯ VẤN NGAY</button>
+  </form>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Thiết Kế Nội Thất Litrada</p>
+  </footer>
+
+  <script src="tuvan.js"></script>
+</body>
+</html>

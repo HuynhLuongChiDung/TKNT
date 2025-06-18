@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thiết Kế Nội Thất</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Thanh công cụ giống Houzz -->
+  <header class="main-header">
+    <div class="left">
+      <div class="logo">Litrada</div>
+      <nav class="main-nav">
+        <a href="#">Trang chủ</a>
+        <a href="tuvan.html">Tư vấn</a>
+        <a href="#">Phòng khách</a>
+        <a href="#">Bếp</a>
+        <a href="#">Phòng ngủ</a>
+      </nav>
+    </div>
+    
+    
+    <div class="center">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm, ý tưởng..." />
+    </div>
+    
+    <div class="right">
+      <a href="#" class="icon">❤️</a>
+      <a href="shop.html" class="icon">🛒</a>
+      <a href="login.html" class="icon">👤</a>
+    </div>
+  </header>
+
+  <!-- Danh mục sản phẩm -->
+  <section class="categories">
+    <h2>Danh Mục Thiết Kế</h2>
+    <div class="category-grid" id="categoryGrid">
+      <div class="category-card" data-name="phòng khách">
+        <img src="PhongKhach.jpeg" alt="Phòng khách"/>
+        <h3>Phòng Khách</h3>
+      </div>
+      <div class="category-card" data-name="phòng ngủ">
+        <img src="PhongNgu.jpeg" alt="Phòng ngủ"/>
+        <h3>Phòng Ngủ</h3>
+      </div>
+      <div class="category-card" data-name="bếp">
+        <img src="PhongBep.jpeg" alt="Bếp"/>
+        <h3>Phòng Bếp</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal xem ảnh -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="Xem chi tiết" />
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Thiết Kế Nội Thất</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
