@@ -24,3 +24,8 @@ document.getElementById("searchInput").addEventListener("input", function () {
     card.style.display = name.includes(keyword) ? "block" : "none";
   });
 });
+
+// Gọi hàm khi trang tải (không cần updateUserHeader nữa)
+document.addEventListener('DOMContentLoaded', function() {
+  // Logic khác nếu cần
+});

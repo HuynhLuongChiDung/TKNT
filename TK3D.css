@@ -1,0 +1,389 @@
+/* ===== DESIGNER PAGE STYLES ===== */
+.designer-main {
+  padding: 20px;
+  min-height: calc(100vh - 150px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.designer-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.designer-header h2 {
+  margin: 0;
+  color: #1c8e52;
+  font-size: 28px;
+}
+
+.designer-header p {
+  margin: 5px 0 15px;
+  color: #666;
+}
+
+.designer-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.designer-actions button {
+  padding: 8px 15px;
+  background: linear-gradient(90deg, #1c8e52, #2f9fcf);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.designer-actions button:hover {
+  background: linear-gradient(90deg, #157544, #2f9fcf);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.designer-actions button i {
+  font-size: 14px;
+}
+
+#designer-container {
+  width: 100%;
+  flex-grow: 1;
+  min-height: 500px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tool-panel {
+  position: fixed;
+  left: 0;
+  top: 80px;
+  width: 280px;
+  background: white;
+  padding: 15px;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  z-index: 100;
+  border-radius: 0 10px 10px 0;
+  transition: transform 0.3s ease;
+}
+
+.tool-panel-header {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.tool-panel h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #1c8e52;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 30px 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.search-box i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background: #1c8e52;
+  color: white;
+}
+
+.object-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.object-item {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+  text-align: center;
+}
+
+.object-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-color: #1c8e52;
+}
+
+.object-item img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.object-item .object-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.floating-toolbar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.floating-toolbar button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #1c8e52;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.floating-toolbar button:hover {
+  background: #157544;
+  transform: scale(1.1);
+}
+
+.floating-toolbar button.active {
+  background: #0d5c30;
+  transform: scale(1.1);
+}
+
+.floating-toolbar button i {
+  font-size: 16px;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin-bottom: 5px;
+}
+
+.floating-toolbar button:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #333;
+  color: #fff;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  z-index: 99;
+}
+
+.status-bar span {
+  padding: 0 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.help-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.help-section h4 {
+  margin-top: 0;
+  color: #1c8e52;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.help-section ul {
+  padding-left: 20px;
+}
+
+.help-section li {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1200px) {
+  .tool-panel {
+    transform: translateX(-90%);
+  }
+  
+  .tool-panel:hover {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 992px) {
+  #designer-container {
+    min-height: 400px;
+  }
+  
+  .tool-panel {
+    width: 250px;
+  }
+  
+  .help-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .tool-panel {
+    width: 200px;
+    padding: 10px;
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+  
+  .object-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .floating-toolbar {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  
+  .floating-toolbar button {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  .designer-header {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .designer-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .tool-panel {
+    width: 180px;
+  }
+  
+  .status-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px 10px;
+  }
+  
+  .status-bar span {
+    padding: 2px 0;
+  }
+}

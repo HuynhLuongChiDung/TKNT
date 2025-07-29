@@ -1,69 +1,86 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thiết Kế Nội Thất</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Litrada</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Thanh công cụ giống Houzz -->
+  <!-- Header -->
   <header class="main-header">
     <div class="left">
-      <div class="logo">Litrada</div>
-      <nav class="main-nav">
-        <a href="#">Trang chủ</a>
-        <a href="tuvan.html">Tư vấn</a>
-        <a href="#">Phòng khách</a>
-        <a href="#">Bếp</a>
-        <a href="#">Phòng ngủ</a>
-      </nav>
+      <span class="logo">Litrada</span>
     </div>
-    
-    
+    <nav class="main-nav">
+      <a href="index.html" class="active">Trang chủ</a>
+      <a href="tuvan.html">Tư vấn</a>
+      <a href="#"></a>
+      <a href="#"></a>
+      <a href="#"></a>
+    </nav>
     <div class="center">
-      <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm, ý tưởng..." />
+      <input type="text" id="searchInput" placeholder="Tìm kiếm...">
     </div>
-    
     <div class="right">
-      <a href="#" class="icon">❤️</a>
-      <a href="shop.html" class="icon">🛒</a>
-      <a href="login.html" class="icon">👤</a>
+      <a href="favorites.html" class="icon">❤️ <span id="favoriteCount">0</span></a>
+      <a href="shop.html" class="icon">🛒 <span id="cartCount">0</span></a>
+      <div id="userSection">
+        <a href="login.html" id="loginLink" class="icon">👤</a>
+        <div id="userInfo" class="user-info" style="display: none;">
+          <div id="userAvatar" class="user-avatar"></div>
+          <span id="userName" class="user-name"></span>
+          <button id="logoutBtn" class="logout-btn">Đăng xuất</button>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Danh mục sản phẩm -->
-  <section class="categories">
-    <h2>Danh Mục Thiết Kế</h2>
-    <div class="category-grid" id="categoryGrid">
-      <div class="category-card" data-name="phòng khách">
-        <img src="PhongKhach.jpeg" alt="Phòng khách"/>
-        <h3>Phòng Khách</h3>
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="categories">
+      <h2>Danh Mục Thiết Kế</h2>
+      <div class="category-grid">
+        <div class="category-card" data-name="Phòng Khách">
+          <img src="PhongKhach.jpeg" alt="Phòng Khách">
+          <h3>Phòng Khách</h3>
+        </div>
+        <div class="category-card" data-name="Phòng Ngủ">
+          <img src="PhongNgu.jpeg" alt="Phòng Ngủ">
+          <h3>Phòng Ngủ</h3>
+        </div>
+        <div class="category-card" data-name="Phòng Bếp">
+          <img src="PhongBep.jpeg" alt="Phòng Bếp">
+          <h3>Phòng Bếp</h3>
+        </div>
       </div>
-      <div class="category-card" data-name="phòng ngủ">
-        <img src="PhongNgu.jpeg" alt="Phòng ngủ"/>
-        <h3>Phòng Ngủ</h3>
-      </div>
-      <div class="category-card" data-name="bếp">
-        <img src="PhongBep.jpeg" alt="Bếp"/>
-        <h3>Phòng Bếp</h3>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Modal xem ảnh -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modalImage" src="" alt="Xem chi tiết" />
+    <section class="design-cta">
+      <div class="cta-container">
+        <h2>Bắt đầu thiết kế không gian của bạn</h2>
+        <p>Tạo nên không gian sống mơ ước với công cụ thiết kế nội thất chuyên nghiệp của chúng tôi.</p>
+        <a href="TK3D.html" class="design-button">
+          Thiết kế ngay <span>🎨</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">×</span>
+        <img id="modalImage" src="" alt="Hình ảnh chi tiết">
+      </div>
     </div>
-  </div>
+  </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Thiết Kế Nội Thất</p>
+    <p>© 2025 Thiết Kế Nội Thất Litrada</p>
   </footer>
 
   <script src="script.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>

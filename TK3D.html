@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Litrada - Thiết kế 3D Nâng cao</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="TK3D.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="left">
+      <a href="index.html" class="logo">Litrada</a>
+      <nav class="main-nav">
+        <a href="index.html">Trang chủ</a>
+        <a href="tuvan.html">Tư vấn</a>
+        <a href="shop.html">Sản phẩm</a>
+        <a href="TK3D.html" class="active">Thiết kế 3D</a>
+      </nav>
+    </div>
+    <div class="center">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm...">
+    </div>
+    <div class="right">
+      <a href="#" id="loginLink">Đăng nhập</a>
+      <div class="user-info" id="userInfo">
+        <span class="user-avatar" id="userAvatar"></span>
+        <span class="user-name" id="userName"></span>
+        <button class="logout-btn" id="logoutBtn">Đăng xuất</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="designer-main">
+      <div class="designer-header">
+        <h2>Thiết kế nội thất 3D</h2>
+        <p>Tạo không gian mơ ước của bạn với công cụ thiết kế trực quan</p>
+        <div class="designer-actions">
+          <button id="saveBtn"><i class="fas fa-save"></i> Lưu</button>
+          <button id="loadBtn"><i class="fas fa-folder-open"></i> Tải</button>
+          <button id="exportBtn"><i class="fas fa-camera"></i> Xuất ảnh</button>
+          <button id="resetBtn"><i class="fas fa-trash-alt"></i> Xóa tất cả</button>
+        </div>
+      </div>
+      
+      <div id="designer-container"></div>
+      
+      <div class="tool-panel">
+        <div class="tool-panel-header">
+          <h3><i class="fas fa-cubes"></i> Thư viện đồ nội thất</h3>
+          <div class="search-box">
+            <input type="text" id="objectSearch" placeholder="Tìm đồ nội thất...">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+        
+        <div class="category-tabs">
+          <button class="tab-btn active" data-category="all">Tất cả</button>
+          <button class="tab-btn" data-category="living">Phòng khách</button>
+          <button class="tab-btn" data-category="bedroom">Phòng ngủ</button>
+          <button class="tab-btn" data-category="dining">Phòng ăn</button>
+        </div>
+        
+        <div class="object-grid" id="objectGrid">
+          <!-- Các mục đồ nội thất sẽ được thêm bằng JavaScript -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-toolbar" id="floatingToolbar">
+    <button id="moveBtn" class="active" title="Di chuyển (M)">
+      <i class="fas fa-arrows-alt"></i>
+      <span class="tooltip">Di chuyển (M)</span>
+    </button>
+    <button id="rotateBtn" title="Xoay (R)">
+      <i class="fas fa-sync-alt"></i>
+      <span class="tooltip">Xoay (R)</span>
+    </button>
+    <button id="scaleBtn" title="Thay đổi kích thước (S)">
+      <i class="fas fa-expand-alt"></i>
+      <span class="tooltip">Thay đổi kích thước (S)</span>
+    </button>
+    <button id="deleteBtn" title="Xóa (Delete)">
+      <i class="fas fa-trash"></i>
+      <span class="tooltip">Xóa (Delete)</span>
+    </button>
+    <button id="helpBtn" title="Trợ giúp (H)">
+      <i class="fas fa-question"></i>
+      <span class="tooltip">Trợ giúp (H)</span>
+    </button>
+  </div>
+
+  <div class="status-bar" id="statusBar">
+    <span id="statusMessage">Sẵn sàng</span>
+    <span id="objectCount">0 đối tượng</span>
+    <span id="coordinates">X: 0, Y: 0, Z: 0</span>
+  </div>
+
+  <div class="modal" id="helpModal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3>Hướng dẫn sử dụng</h3>
+      <div class="help-content">
+        <div class="help-section">
+          <h4><i class="fas fa-mouse-pointer"></i> Thao tác cơ bản</h4>
+          <ul>
+            <li><strong>Click chuột trái:</strong> Chọn đối tượng</li>
+            <li><strong>Kéo chuột:</strong> Di chuyển đối tượng</li>
+            <li><strong>Nhấn R + kéo chuột:</strong> Xoay đối tượng</li>
+            <li><strong>Nhấn S + kéo chuột:</strong> Thay đổi kích thước</li>
+            <li><strong>Delete:</strong> Xóa đối tượng đang chọn</li>
+          </ul>
+        </div>
+        <div class="help-section">
+          <h4><i class="fas fa-keyboard"></i> Phím tắt</h4>
+          <ul>
+            <li><strong>M:</strong> Chế độ di chuyển</li>
+            <li><strong>R:</strong> Chế độ xoay</li>
+            <li><strong>S:</strong> Chế độ thay đổi kích thước</li>
+            <li><strong>Ctrl+Z:</strong> Hoàn tác</li>
+            <li><strong>Ctrl+Y:</strong> Làm lại</li>
+            <li><strong>H:</strong> Hiện/ẩn hướng dẫn</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Litrada - Nội thất hiện đại | <a href="#" id="privacyLink">Chính sách bảo mật</a> | <a href="#" id="termsLink">Điều khoản sử dụng</a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/controls/OrbitControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
+  <script src="script.js"></script>
+  <script src="TK3D.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

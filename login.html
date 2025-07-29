@@ -3,23 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Đăng Nhập | Nội Thất</title>
+  <title>Đăng Nhập | Đăng Ký - Litrada</title>
   <link rel="stylesheet" href="login.css" />
 </head>
 <body class="login-body">
   <div class="login-wrapper">
-    <div class="login-box">
+    <div class="login-box" id="loginBox">
       <div class="logo">Litrada</div>
-      <h2>Đăng nhập vào tài khoản của bạn</h2>
-      <form>
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Mật khẩu" required />
+      <h2 id="formTitle">Đăng nhập</h2>
+      
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email" required />
+        <input type="password" id="loginPassword" placeholder="Mật khẩu" required />
         <button type="submit">Đăng Nhập</button>
-        <p class="login-link">Bạn chưa có tài khoản? <a href="#">Đăng ký</a></p>
+        <p class="login-link">Bạn chưa có tài khoản? <a href="#" id="switchToRegister">Đăng ký</a></p>
       </form>
+      
+      <form id="registerForm" style="display: none;">
+        <input type="text" id="regName" placeholder="Họ và tên" required />
+        <input type="email" id="regEmail" placeholder="Email" required />
+        <input type="password" id="regPassword" placeholder="Mật khẩu" required />
+        <input type="password" id="regConfirmPassword" placeholder="Nhập lại mật khẩu" required />
+        <button type="submit">Đăng Ký</button>
+        <p class="login-link">Đã có tài khoản? <a href="#" id="switchToLogin">Đăng nhập</a></p>
+      </form>
+      
       <a href="index.html" class="back-home">← Quay lại trang chủ</a>
     </div>
   </div>
+  
+  
+  <script src="auth.js"></script>
   <script src="login.js"></script>
 </body>
 </html>

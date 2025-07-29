@@ -1,12 +1,9 @@
 .login-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", sans-serif;
-  background-color: #f5f5f5;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background: linear-gradient(135deg, #f5f5f5, #e0f7fa);
 }
 
 .login-wrapper {
@@ -19,43 +16,61 @@
   background-color: white;
   padding: 40px 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
+  animation: fadeIn 0.5s ease-in;
 }
 
-.login-logo img {
-  height: 50px;
+.login-logo {
   margin-bottom: 20px;
+}
+
+.login-logo .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1c8e52;
 }
 
 .login-box h2 {
   margin-bottom: 20px;
   color: #1c8e52;
+  font-weight: 600;
 }
 
-.login-box form input {
-  width: 100%;
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-box input {
   padding: 12px;
-  margin-bottom: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
 
-.login-box form button {
-  width: 100%;
+.login-box input:focus {
+  border-color: #2f9fcf;
+  box-shadow: 0 0 8px rgba(47, 159, 207, 0.6);
+  transform: scale(1.01);
+  outline: none;
+}
+
+.login-box button {
   padding: 12px;
-  background-color: #1c8e52;
+  background: linear-gradient(90deg, #1c8e52, #2f9fcf);
   color: white;
-  font-size: 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.login-box form button:hover {
-  background-color: #157544;
+.login-box button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 15px rgba(28, 142, 82, 0.4);
 }
 
 .login-link {
@@ -66,6 +81,11 @@
 .login-link a {
   color: #1c8e52;
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+.login-link a:hover {
+  color: #2f9fcf;
 }
 
 .back-home {
@@ -74,12 +94,43 @@
   font-size: 13px;
   color: #888;
   text-decoration: none;
+  transition: color 0.3s;
 }
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+
+.back-home:hover {
   color: #1c8e52;
-  margin-bottom: 20px;
-  font-family: 'Segoe UI', sans-serif;
-  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 30px 20px;
+  }
+  .login-box input {
+    padding: 10px;
+  }
+}
+/* ... (giữ nguyên code hiện tại) */
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background: #1c8e52;
+  color: white;
+  border-radius: 5px;
+  opacity: 0;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.notification.error {
+  background: #e74c3c;
+}
+
+.notification.show {
+  opacity: 1;
 }

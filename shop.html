@@ -2,51 +2,79 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Litrada Shop</title>
-  <link rel="stylesheet" href="shop.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Litrada - Sản phẩm</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="shop.css">
+    
 </head>
 <body>
-  <header>
-    <div class="logo">Litrada</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Trang chủ</a></li>
-        <li><a href="shop.html" class="active">Sản phẩm</a></li>
-        <li><a href="login.html">Đăng nhập</a></li>
-      </ul>
-    </nav>
+  <header class="main-header">
+    <div class="left">
+      <span class="logo">Litrada</span>
+      <nav class="main-nav">
+        <a href="index.html">Trang chủ</a>
+        <a href="shop.html" class="active">Sản phẩm</a>
+      </nav>
+    </div>
+    <div class="center">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm...">
+    </div>
+    <div class="right">
+      <a href="favorites.html" class="icon">❤️ <span id="favoriteCount">0</span></a>
+      <a href="shop.html" class="icon">🛒 <span id="cartCount">0</span></a>
+      <div id="userSection">
+        <a href="login.html" id="loginLink" class="icon">👤</a>
+        <div id="userInfo" class="user-info" style="display: none;">
+          <div id="userAvatar" class="user-avatar"></div>
+          <span id="userName" class="user-name"></span>
+          <button id="logoutBtn" class="logout-btn">Đăng xuất</button>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main class="shop-container">
-    <h1>Sản phẩm nổi bật</h1>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="sofa.jpg" alt="Ghế Sofa" />
+    <h2>Sản phẩm nổi bật</h2>
+    <div class="product-grid" id="productGrid">
+      <div class="product-card" data-id="1" data-name="Ghế Sofa Hiện Đại" data-price="10500000">
+        <button class="favorite-btn" onclick="toggleFavorite(1, 'Ghế Sofa Hiện Đại', 10500000, 'sofa.jpg')">❤️</button>
+        <img src="sofa.jpg" alt="Ghế Sofa Hiện Đại">
         <h3>Ghế Sofa Hiện Đại</h3>
         <p>10.500.000₫</p>
-        <button>Thêm vào giỏ</button>
+        <button onclick="addToCart(1, 'Ghế Sofa Hiện Đại', 10500000)">Thêm vào giỏ</button>
       </div>
-
-      <div class="product-card">
-        <img src="Bango.jpeg" alt="Bàn gỗ" />
+      <div class="product-card" data-id="2" data-name="Bàn Gỗ Tự Nhiên" data-price="20000000">
+        <button class="favorite-btn" onclick="toggleFavorite(2, 'Bàn Gỗ Tự Nhiên', 20000000, 'Bango.jpeg')">❤️</button>
+        <img src="Bango.jpeg" alt="Bàn Gỗ Tự Nhiên">
         <h3>Bàn Gỗ Tự Nhiên</h3>
         <p>20.000.000₫</p>
-        <button>Thêm vào giỏ</button>
+        <button onclick="addToCart(2, 'Bàn Gỗ Tự Nhiên', 20000000)">Thêm vào giỏ</button>
       </div>
-
-      <div class="product-card">
-        <img src="denhoa.jpeg" alt="Đèn trang trí" />
+      <div class="product-card" data-id="3" data-name="Đèn Trang Trí" data-price="5000000">
+        <button class="favorite-btn" onclick="toggleFavorite(3, 'Đèn Trang Trí', 5000000, 'denhoa.jpeg')">❤️</button>
+        <img src="denhoa.jpeg" alt="Đèn Trang Trí">
         <h3>Đèn Trang Trí</h3>
         <p>5.000.000₫</p>
-        <button>Thêm vào giỏ</button>
+        <button onclick="addToCart(3, 'Đèn Trang Trí', 5000000)">Thêm vào giỏ</button>
       </div>
+    </div>
 
-      <!-- Bạn có thể thêm nhiều sản phẩm hơn -->
+    <div class="cart-container">
+      <h3>Giỏ hàng</h3>
+      <div id="cartItems"></div>
+      <p>Tổng tiền: <span id="cartTotal">0₫</span></p>
+      <button id="checkoutBtn" disabled>Thanh toán</button>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 Litrada - Nội thất hiện đại</p>
+    <p>© 2025 Thiết Kế Nội Thất Litrada</p>
   </footer>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="auth.js"></script>
+  <script src="shop.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

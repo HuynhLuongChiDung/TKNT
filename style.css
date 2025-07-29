@@ -6,14 +6,14 @@
   font-family: Arial, sans-serif;
 }
 
-/* Header giống Houzz */
+/* Header */
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 30px;
+  padding: 15px 30px;
   background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -31,79 +31,193 @@
   margin-right: 24px;
 }
 
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
 .main-nav a {
-  margin-right: 18px;
   text-decoration: none;
   color: #333;
   font-size: 16px;
+  transition: color 0.3s ease;
 }
 
-.main-nav a:hover {
+.main-nav a:hover,
+.main-nav a.active {
   color: #2f9fcf;
 }
 
-.main-header .center input {
-  padding: 8px 14px;
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 14px;
+.main-header .right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .main-header .right a.icon {
-  margin-left: 18px;
   font-size: 20px;
   text-decoration: none;
   color: #333;
+  transition: color 0.3s ease;
 }
 
 .main-header .right a.icon:hover {
   color: #1c8e52;
 }
 
-/* Danh mục */
+#userSection .user-info {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+#userSection .user-info .user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #1c8e52;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#userSection .user-info .user-name {
+  font-size: 14px;
+  color: #333;
+}
+
+#userSection .user-info .logout-btn {
+  padding: 4px 8px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#userSection .user-info .logout-btn:hover {
+  background: #f5f5f5;
+}
+
+/* Main Content */
+.main-content {
+  padding: 40px 20px;
+  min-height: calc(100vh - 120px);
+}
+
 .categories {
-  padding: 40px;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .categories h2 {
   font-size: 28px;
-  margin-bottom: 20px;
   color: #1c1c1c;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .category-grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  flex-wrap: wrap;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .category-card {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .category-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .category-card img {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
 }
 
 .category-card h3 {
-  padding: 10px;
+  padding: 15px;
   font-size: 18px;
   color: #333;
+  text-align: center;
+}
+
+/* Design CTA Section */
+.design-cta {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.design-cta h2 {
+  font-size: 28px;
+  color: #1c1c1c;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.design-cta p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.design-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background-color: #1c8e52;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(28, 142, 82, 0.2);
+}
+
+.design-button:hover {
+  background-color: #157544;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(28, 142, 82, 0.3);
+}
+
+.design-button span {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.design-button:hover span {
+  transform: rotate(15deg);
 }
 
 /* Modal */
@@ -111,9 +225,11 @@
   display: none;
   position: fixed;
   z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
 }
@@ -124,6 +240,8 @@
   border-radius: 10px;
   position: relative;
   max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .modal-content img {
@@ -134,10 +252,16 @@
 
 .close {
   position: absolute;
-  top: 10px; right: 15px;
+  top: 10px;
+  right: 15px;
   font-size: 24px;
   cursor: pointer;
   color: #333;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #e74c3c;
 }
 
 /* Footer */
@@ -147,4 +271,101 @@ footer {
   background: #f3f3f3;
   color: #555;
   font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .main-header .right {
+    gap: 10px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .design-cta {
+    padding: 40px 15px;
+  }
+
+  .design-cta h2 {
+    font-size: 24px;
+  }
+
+  .design-button {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header .logo {
+    font-size: 20px;
+  }
+
+  .main-nav a {
+    font-size: 14px;
+  }
+
+  .categories h2 {
+    font-size: 24px;
+  }
+
+  .category-card img {
+    height: 150px;
+  }
+
+  .design-cta h2 {
+    font-size: 20px;
+  }
+}
+/* ... (giữ nguyên code hiện tại) */
+
+#userSection .user-info {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+#userSection .user-info .user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #1c8e52;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#userSection .user-info .user-name {
+  font-size: 14px;
+  color: #333;
+}
+
+#userSection .user-info .logout-btn {
+  padding: 4px 8px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#userSection .user-info .logout-btn:hover {
+  background: #f5f5f5;
 }
